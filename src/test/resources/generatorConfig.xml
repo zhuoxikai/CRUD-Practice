@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+
+  <context id="DB2Tables" targetRuntime="MyBatis3">
+    <commentGenerator>
+      <property name="suppressAllComments" value="true"/>
+    </commentGenerator>
+
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql://47.94.211.239:3333/crud?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false"
+        userId="root"
+        password="123456">
+    </jdbcConnection>
+
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+
+    <javaModelGenerator targetPackage="com.ssm.crud.entity" targetProject="C:\ljw\javaweb\crud\src\main\java">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+
+    <sqlMapGenerator targetPackage="mapper"  targetProject="C:\ljw\javaweb\crud\src\main\resources">
+      <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.ssm.crud.dao"  targetProject="C:\ljw\javaweb\crud\src\main\java">
+      <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+
+    <table tableName="ljw_emp" domainObjectName="Employee"/>
+    <table tableName="ljw_dept" domainObjectName="Department"/>
+
+  </context>
+</generatorConfiguration>
