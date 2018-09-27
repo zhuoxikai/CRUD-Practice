@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>employeeList</title>
-    <link href="/static/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="/static/jQuery/jquery-3.3.1.min.js"></script>
-    <script src="/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <link href="static/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="static/jQuery/jquery-3.3.1.min.js"></script>
+    <script src="static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -161,7 +161,7 @@
 
     function page(pn) {
         $.ajax({
-            url: "/emps",
+            url: "emps",
             data: "pn=" + pn,
             type: "get",
             success: function (data) {
@@ -283,7 +283,7 @@
         $(ele).empty();
 
         $.ajax({
-            url: "/depts",
+            url: "depts",
             type: "GET",
             success: function (data) {
                 console.log(data);
@@ -336,7 +336,7 @@
     function checkName(ele) {
         var empName = ele.value;
         $.ajax({
-            url: "/checkName",
+            url: "checkName",
             data: "empName=" + empName,
             type: "POST",
             success: function (data) {
@@ -361,7 +361,7 @@
             return false;
         } else {
             $.ajax({
-                url: "/save",
+                url: "save",
                 type: "POST",
                 data: $("#empAddModal form").serialize(),
                 success: function (data) {
@@ -395,7 +395,7 @@
 
     function getEmp(empId) {
         $.ajax({
-            url: "/emp/" + empId,
+            url: "emp/" + empId,
             type: "get",
             success: function (data) {
                 $("#empName_update_static").text(data.extend.empName);
@@ -418,7 +418,7 @@
         }
 
         $.ajax({
-            url: "/emp/" + $(this).attr("empId"),
+            url: "emp/" + $(this).attr("empId"),
             type: "PUT",
             data: $("#empUpdateModal form").serialize(),
             success: function (data) {
@@ -430,7 +430,7 @@
 
     function deleteEmps(ele) {
         $.ajax({
-            url: "/emp/" + ele,
+            url: "emp/" + ele,
             type: "DELETE",
             success: function (data) {
                 alert(data.msg);
